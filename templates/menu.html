@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+Hаше меню
+{% endblock title %}
+
+{% block center %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Назва піци</td>
+            <td>Інгредієнти</td>
+            <td>Ціна</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pizza in pizzas|sort(attribute="price") %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ pizza.name }}</td>
+            <td>{{ pizza.ingredients }}</td>
+            <td>{{ pizza.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock center %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/add_pizza/" method="post">
+    <div class="mb-3">
+      <label>Назва піци</label>
+      <input type="text" class="form-control" name="name">
+    </div>
+    <div class="mb-3">
+      <label>Інгридієнти</label>
+      <input type="text" class="form-control" name="name">
+    </div>
+    <div class="mb-3">
+        <label>Ціна</label>
+        <input type="number" class="form-control" step="0.1" name="price">
+      </div>
+    <button type="submit" class="btn btn-danger">Додати нову піцу</button>
+  </form>
+{% endblock content %}
