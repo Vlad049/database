@@ -26,8 +26,8 @@ def menu():
 @app.route("/add_pizza/", methods=["GET", "POST"])
 def add_pizza():
     if request.method == "POST":
-        ingredients = request.form.get("ingredients")
         name = request.form.get("name")
+        ingredients = request.form.get("ingredients")
         price = request.form.get("price")
 
         if not name or not ingredients or not price:

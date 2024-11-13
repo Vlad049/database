@@ -24,4 +24,8 @@ Hаше меню
         {% endfor %}
     </tbody>
   </table>
+  <h1>
+    <a href="{{ url_for('add_pizza') }}" class="btn btn-danger">Додати нову піццу</a>
+    <a href="{{ url_for('index') }}" class="btn btn-warning">Повернутись в головну сторінку</a>
+  </h1>
 {% endblock center %}

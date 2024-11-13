@@ -7,13 +7,15 @@
       <input type="text" class="form-control" name="name">
     </div>
     <div class="mb-3">
-      <label>Інгридієнти</label>
-      <input type="text" class="form-control" name="name">
-    </div>
+        <label>Інгридієнти</label>
+        <input type="text" class="form-control" name="ingredients">
+      </div>
     <div class="mb-3">
         <label>Ціна</label>
         <input type="number" class="form-control" step="0.1" name="price">
       </div>
     <button type="submit" class="btn btn-danger">Додати нову піцу</button>
   </form>
+  <br>
+  <a href="{{ url_for('menu') }}" class="btn btn-warning">Повернутись в меню</a>
 {% endblock content %}
