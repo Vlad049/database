@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 
 import datab
-
+from weather import get_weather
 
 app = Flask(__name__)
 
@@ -12,7 +12,23 @@ def index():
 
 
 @app.get("/menu/")
+# def menu():
+#     weather = get_weather()
+#     pizza_recomend = ""
+#     if weather.get("temp") < 0:
+#         pizza_recomend = "Зимня"
+#     elif weather.get("temp") > 30:
+#         pizza_recomend = "Гавайська"
+#     elif 0 <= weather.get("temp") < 20:
+#         pizza_recomend = "Маргарита"
+#     else:
+#         pizza_recomend = "Пепероні"
+
+#     return render_template("menu.html", weather=weather, pizza_recomend=pizza_recomend)
+
+
 def menu():
+    weather = get_weather()
     pizzas_database = datab.get_pizzas()
     pizzas = []
 
@@ -20,7 +36,20 @@ def menu():
         pizzas.append(
             {"name": pizza[1], "ingredients": pizza[2], "price": pizza[3]},
         )
-    return render_template("menu.html", pizzas=pizzas)
+
+    
+    pizza_recomend = ""
+    if weather.get("temp") < 0:
+        pizza_recomend = "Зимня"
+    elif weather.get("temp") > 30:
+        pizza_recomend = "Гавайська"
+    elif 0 <= weather.get("temp") < 20:
+        pizza_recomend = "Маргарита"
+    else:
+        pizza_recomend = "Пепероні"
+
+
+    return render_template("menu.html", pizzas=pizzas,  weather=weather, pizza_recomend=pizza_recomend)
 
 
 @app.route("/add_pizza/", methods=["GET", "POST"])

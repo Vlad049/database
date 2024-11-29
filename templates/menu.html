@@ -3,6 +3,21 @@
 Hаше меню
 {% endblock title %}
 
+{% block content%}
+    <marquee bgcolor="4484ad">З 25.12.24 по 28.12.24 дві піцци по ціні однієї</marquee>
+{% endblock content%}
+
+{% block left %}
+<div class="card" style="width: 10rem;">
+    <img src="{{ weather.icon }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ weather.temp }}°C</h5>
+      <p class="card-text">{{ weather.city }}: {{ weather.text }}</p>
+      <p class="card-text">Сьогодні рекомендуємо піцу: {{ pizza_recomend }}</p>
+    </div>
+  </div>
+{% endblock left %}
+
 {% block center %}
 <table class="table table-striped table-hover">
     <thead>
